@@ -8,7 +8,7 @@ import { Input } from "@/ui/Input";
 import Heading from "@/ui/Heading";
 import Paragraph from "./ui/Paragraph";
 import Table from "@/ui/Table";
-
+import { ApiKey } from "@prisma/client";
 const ApiDashboard = async ({}) => {
   const user = await getServerSession(authOptions);
   if (!user) return notFound();
@@ -17,7 +17,7 @@ const ApiDashboard = async ({}) => {
     where: { userId: user.user.id },
   });
 
-  const activeApiKey = apiKeys.find((key) => key.enabled);
+  const activeApiKey = apiKeys.find((key: ApiKey) => key.enabled);
 
   if (!activeApiKey) return notFound();
 
