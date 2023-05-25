@@ -8,7 +8,7 @@ import { Input } from "@/ui/Input";
 import Heading from "@/ui/Heading";
 import Paragraph from "./ui/Paragraph";
 import Table from "@/ui/Table";
-import { ApiKey } from "@prisma/client";
+import { ApiKey } from ".prisma/client";
 const ApiDashboard = async ({}) => {
   const user = await getServerSession(authOptions);
   if (!user) return notFound();
